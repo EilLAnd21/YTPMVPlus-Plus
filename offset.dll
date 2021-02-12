@@ -1,0 +1,24 @@
+	class VideoSegment {
+	public:
+		double startSeconds, endSeconds;
+		double offsetSeconds = 0.0; // offset into source video
+		double speed = 1.0; // 1 => original speed
+		VideoSource* source = nullptr;
+		int zIndex = 0;
+					const VideoSegment& seg = segments.at((*it).first);
+					double t = timeSeconds-seg.startSeconds;
+
+					textures[k] = seg.source->getFrame(t*seg.speed);
+					textures[k] = seg.source->getFrame(t*seg.speed + seg.offsetSeconds);
+					fr.setImage(k, textures[k]);
+					relTimeSeconds[k] = float(t);
+
+@@ -265,7 +265,7 @@ namespace ytpmvpanel {
+
+				// find source frame
+				double relTime = timeSeconds-seg.startSeconds;
+				textures[k] = seg.source->getFrame(relTime*seg.speed);
+				textures[k] = seg.source->getFrame(relTime*seg.speed + seg.offsetSeconds);
+				fr.setImage(k, textures[k]);
+
+				// set parameters
