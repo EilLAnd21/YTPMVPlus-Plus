@@ -1,5 +1,8 @@
-node_modules/
-package-lock.json
-sourcemp3/
-temp/
 *.mp4
+*.flv
+tmp/*
+*.pyc
+*.json
+connector.py
+test.py
+.idea/workspace.xml
